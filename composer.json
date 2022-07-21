@@ -1,0 +1,15 @@
+{
+    "name": "panji/skripsi",
+    "description": "skripsi",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "panji",
+            "email": "panji.bp.bp@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^2.0"
+    }
+}
