@@ -82,9 +82,9 @@ class Main extends CI_Controller
 				$ideas = $row2->id_alternatif;
 				$hsl = $queryku->row()->bak;
 				if ($hsl >= 4) {
-					$ket = "Layak";
+					$ket = "Mendapat Bonus";
 				} else {
-					$ket = "Tidak Layak";
+					$ket = "Tidak Mendapat Bonus";
 				}
 				$hasil =  $this->db->query("UPDATE alternatif SET hasil_alternatif='" . $hsl . "', ket_alternatif='" . $ket . "' where id_alternatif='" . $ideas . "'");
 			}
@@ -152,9 +152,9 @@ class Main extends CI_Controller
 				$ideas = $row2->id_alternatif;
 				$hsl = $queryku->row()->bak;
 				if ($hsl >= 4) {
-					$ket = "Layak";
+					$ket = "Mendapat Bonus";
 				} else {
-					$ket = "Tidak Layak";
+					$ket = "Tidak Mendapat Bonus";
 				}
 				$hasil =  $this->db->query("UPDATE alternatif SET hasil_alternatif='" . $hsl . "', ket_alternatif='" . $ket . "' WHERE id_alternatif='" . $ideas . "'");
 			}
@@ -204,9 +204,9 @@ class Main extends CI_Controller
 				$ideas = $row2->id_alternatif;
 				$hsl = $queryku->row()->bak;
 				if ($hsl >= 4) {
-					$ket = "Layak";
+					$ket = "Mendapat Bonus";
 				} else {
-					$ket = "Tidak Layak";
+					$ket = "Tidak Mendapat Bonus";
 				}
 				$hasil =  $this->db->query("UPDATE alternatif SET hasil_alternatif='" . $hsl . "', ket_alternatif='" . $ket . "' WHERE id_alternatif='" . $ideas . "'");
 			}
@@ -302,7 +302,7 @@ class Main extends CI_Controller
 
 	public function dataPenduduk()
 	{
-		$data['title'] = 'Data Penduduk';
+		$data['title'] = 'Data Karyawan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$data['penduduk'] = $this->Penduduk_model->daftarPenduduk();
 
@@ -315,7 +315,7 @@ class Main extends CI_Controller
 
 	public function tambahDataPenduduk()
 	{
-		$data['title'] = 'Tambah Data Penduduk';
+		$data['title'] = 'Tambah Data Karyawan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->load->view('templates/header', $data);
@@ -327,14 +327,14 @@ class Main extends CI_Controller
 
 	public function prosesSimpanPenduduk()
 	{
-		$data['no_kk'] = $this->input->post('no_kk');
+		$data['id_karyawan'] = $this->input->post('id_karyawan');
 		$data['nama_alternatif'] = $this->input->post('nama_alternatif');
-		$data['ket_alternatif'] = 'Tidak Layak';
+		$data['ket_alternatif'] = 'Tidak Mendapat Bonus';
 
 		$this->Penduduk_model->simpanPenduduk($data);
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-		Data Penduduk berhasil ditambahkan.
+		Data Karyawan berhasil ditambahkan.
 		</div>');
 		redirect('main/datapenduduk');
 	}
@@ -343,7 +343,7 @@ class Main extends CI_Controller
 	{
 		$id_alternatif = $this->input->get('id_alternatif');
 
-		$data['title'] = 'Edit Data Penduduk';
+		$data['title'] = 'Edit Data Karyawan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$data['penduduk'] = $this->Penduduk_model->editPenduduk($id_alternatif);
 
@@ -360,13 +360,13 @@ class Main extends CI_Controller
 	{
 		$id_alternatif = $this->session->flashdata('id_alternatif');
 
-		$data['no_kk'] = $this->input->post('no_kk');
+		$data['id_karyawan'] = $this->input->post('id_karyawan');
 		$data['nama_alternatif'] = $this->input->post('nama_alternatif');
 
 		$this->Penduduk_model->prosesEditPenduduk($id_alternatif, $data);
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-		Data Penduduk berhasil diubah.
+		Data Karyawan berhasil diubah.
 		</div>');
 		redirect('main/datapenduduk');
 	}
@@ -378,7 +378,7 @@ class Main extends CI_Controller
 		$this->Penduduk_model->hapusPenduduk($data);
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-		Data Penduduk berhasil dihapus.
+		Data Karyawan berhasil dihapus.
 		</div>');
 		redirect('main/datapenduduk');
 	}
@@ -433,9 +433,9 @@ class Main extends CI_Controller
 			$queryku = $this->db->query("SELECT SUM(bobot_alternatif_kriteria) AS bak FROM alternatif_kriteria WHERE id_alternatif='" . $alt . "'");
 			$hsl = $queryku->row()->bak;
 			if ($hsl >= 4) {
-				$ket = "Layak";
+				$ket = "Mendapat Bonus";
 			} else {
-				$ket = "Tidak Layak";
+				$ket = "Tidak Mendapat Bonus";
 			}
 
 			$hasil =  $this->db->query("UPDATE alternatif SET hasil_alternatif='" . $hsl . "', ket_alternatif='" . $ket . "' WHERE id_alternatif='" . $alt . "'");
@@ -502,9 +502,9 @@ class Main extends CI_Controller
 
 				$hsl = $queryku->row()->bak;
 				if ($hsl >= 4) {
-					$ket = "Layak";
+					$ket = "Mendapat Bonus";
 				} else {
-					$ket = "Tidak Layak";
+					$ket = "Tidak Mendapat Bonus";
 				}
 
 				$hasil =  $this->db->query("UPDATE alternatif SET hasil_alternatif='" . $hsl . "', ket_alternatif='" . $ket . "' WHERE id_alternatif='" . $ida . "'");

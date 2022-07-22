@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-Class Penilaian_model extends CI_Model
+class Penilaian_model extends CI_Model
 {
 
 	public function __construct()
@@ -48,7 +48,7 @@ Class Penilaian_model extends CI_Model
 
 	public function hapusPenilaian($data)
 	{
-		$this->db->delete('alternatif_kriteria',"id_alternatif='$data'");
+		$this->db->delete('alternatif_kriteria', "id_alternatif='$data'");
 
 		if ($this->db->affected_rows() > 0) {
 			return true;
@@ -59,7 +59,7 @@ Class Penilaian_model extends CI_Model
 
 	public function resetPenilaian($data)
 	{
-		$query = "UPDATE alternatif SET hasil_alternatif = '0', ket_alternatif='Tidak Layak' WHERE id_alternatif='$data'";
+		$query = "UPDATE alternatif SET hasil_alternatif = '0', ket_alternatif='Tidak Mendapat Bonus' WHERE id_alternatif='$data'";
 		$res = $this->db->query($query);
 		return true;
 	}

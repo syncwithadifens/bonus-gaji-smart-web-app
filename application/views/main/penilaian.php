@@ -2,6 +2,7 @@
 	th {
 		text-align: center;
 	}
+
 	td {
 		text-align: center;
 	}
@@ -9,23 +10,23 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-12">
-            <ol class="breadcrumb float-sm-left">
-              <li class="breadcrumb-item" style="color: #0080ff;">Penilaian</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+	<!-- Content Header (Page header) -->
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-12">
+					<ol class="breadcrumb float-sm-left">
+						<li class="breadcrumb-item" style="color: #0080ff;">Penilaian</li>
+					</ol>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div>
+	<!-- /.content-header -->
 
-    <div class="conten">
-    	<div class="card">
-    		<div class="card-body">
+	<div class="conten">
+		<div class="card">
+			<div class="card-body">
 				<div class="row">
 					<div class="pull-left">
 						<a href="<?= base_url('main/tambahpenilaian'); ?>" class="btn btn-primary mb-4"><i class="fas fa-plus" style="margin-right: 7px;"></i>Tambah Penilaian</a>
@@ -34,35 +35,35 @@
 						<?= $this->session->flashdata('message'); ?>
 					</div>
 				</div>
-    			<table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
+				<table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
 					<thead>
 						<tr>
-						  <th>No.</th>
-						  <th style="min-width: 150px;">No. Kartu Keluarga</th>
-						  <th style="min-width: 230px;">Nama Kepala Keluarga</th>
-						  <?php
-						  foreach ($kriteria as $k) { ?>
-							  <th><?= $k->nama_kriteria ?></th>
-						  <?php } ?>
-						  <th style="min-width: 100px;">Aksi</th>
+							<th>No.</th>
+							<th style="min-width: 150px;">ID Karyawan</th>
+							<th style="min-width: 230px;">Nama Karyawan</th>
+							<?php
+							foreach ($kriteria as $k) { ?>
+								<th><?= $k->nama_kriteria ?></th>
+							<?php } ?>
+							<th style="min-width: 100px;">Aksi</th>
 						</tr>
 					<tbody>
-						<?php $no=1;
+						<?php $no = 1;
 						foreach ($alternatif as $alt) { ?>
 							<tr>
 								<td><?= $no++; ?></td>
-								<td style="text-align: left;"><?= $alt->no_kk;?></td>
-								<td style="text-align: left;"><?= $alt->nama_alternatif;?></td>
+								<td style="text-align: left;"><?= $alt->id_karyawan; ?></td>
+								<td style="text-align: left;"><?= $alt->nama_alternatif; ?></td>
 								<?php
 								foreach ($kriteria as $k) { ?>
 									<td>
-									<?php
-									$query3 = $this->db->query("SELECT * FROM alternatif_kriteria WHERE id_kriteria='".$k->id_kriteria."' and id_alternatif='".$alt->id_alternatif."'");
-									$ad = $query3->result();
-									foreach ($ad as $row) {
-				                    	echo $row->nilai_alternatif_kriteria;
-				                    }
-									?>
+										<?php
+										$query3 = $this->db->query("SELECT * FROM alternatif_kriteria WHERE id_kriteria='" . $k->id_kriteria . "' and id_alternatif='" . $alt->id_alternatif . "'");
+										$ad = $query3->result();
+										foreach ($ad as $row) {
+											echo $row->nilai_alternatif_kriteria;
+										}
+										?>
 									</td>
 								<?php } ?>
 
@@ -79,7 +80,7 @@
 					</tbody>
 					</thead>
 				</table>
-    		</div>
-    	</div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>

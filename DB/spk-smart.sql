@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `alternatif`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `alternatif` (
   `id_alternatif` int(11) NOT NULL AUTO_INCREMENT,
-  `no_kk` bigint(16) NOT NULL,
+  `id_karyawan` bigint(16) NOT NULL,
   `nama_alternatif` varchar(50) NOT NULL,
   `hasil_alternatif` double NOT NULL,
   `ket_alternatif` varchar(12) NOT NULL,

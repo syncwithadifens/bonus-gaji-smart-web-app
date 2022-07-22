@@ -88,7 +88,7 @@
     foreach ($alternatif as $index => $row2) { ?>
       <tr>
         <td width="10px"><?php echo  $index + 1; ?></td>
-        <td width="140px" style="text-align: left;"><?php echo $row2->no_kk; ?></td>
+        <td width="140px" style="text-align: left;"><?php echo $row2->id_karyawan; ?></td>
         <td width="200px" style="text-align: left;"><?php echo $row2->nama_alternatif; ?></td>
         <!-- <?php
               foreach ($kriteria as $row3) { ?> 
@@ -108,8 +108,8 @@
     <?php } ?>
   </table>
   <p>Keterangan: <br>
-    1. Jika Hasil kurang dari 4, maka <b>Ditolak</b> <br>
-    2. Jika Hasil lebih dari 4, maka <b>Diterima</b>
+    1. Jika Hasil kurang dari 4, maka <b>Tidak Mendapat Bonus</b> <br>
+    2. Jika Hasil lebih dari 4, maka <b>Mendapat Bonus</b>
   </p>
   <table border="0" cellspasing=0 cellpadding=0 width="100%">
     <tr>

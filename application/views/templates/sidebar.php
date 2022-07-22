@@ -80,7 +80,7 @@
                                                                           } ?>">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              Data Penduduk
+              Data Karyawan
             </p>
           </a>
         </li>

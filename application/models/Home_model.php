@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-Class Home_model extends CI_Model
+class Home_model extends CI_Model
 {
 
 	public function __construct()
@@ -20,7 +20,7 @@ Class Home_model extends CI_Model
 	public function jmlLayak()
 	{
 		$this->db->select('count(*)');
-		$this->db->where('ket_alternatif', 'Layak');
+		$this->db->where('ket_alternatif', 'Mendapat Bonus');
 		$query = $this->db->get('alternatif');
 		$cnt = $query->row_array();
 		return $cnt['count(*)'];
@@ -29,7 +29,7 @@ Class Home_model extends CI_Model
 	public function jmlTdkLayak()
 	{
 		$this->db->select('count(*)');
-		$this->db->where('ket_alternatif', 'Tidak Layak');
+		$this->db->where('ket_alternatif', 'Tidak Mendapat Bonus');
 		$query = $this->db->get('alternatif');
 		$cnt = $query->row_array();
 		return $cnt['count(*)'];
@@ -50,5 +50,4 @@ Class Home_model extends CI_Model
 		$cnt = $query->row_array();
 		return $cnt['count(*)'];
 	}
-
 }

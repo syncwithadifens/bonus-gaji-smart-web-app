@@ -28,15 +28,15 @@
 					} ?>
 
 					<?php foreach ($penilaian2 as $row2) {
-						$no_kk = $row2->no_kk;
+						$id_karyawan = $row2->id_karyawan;
 						$nama_alternatif = $row2->nama_alternatif;
 					} ?>
 
 					<?= form_open_multipart('main/proseseditpenilaian'); ?>
 					<div class="form-group col-md-9">
-						<label><b>Nama Penduduk</b></label>
+						<label><b>Nama Karyawan</b></label>
 						<select class="form-control" name="alt" readonly style="margin-top: 6px;">
-							<option value="<?= $id_alternatif; ?>"><?= $no_kk; ?> - <?= $nama_alternatif; ?></option>
+							<option value="<?= $id_alternatif; ?>"><?= $id_karyawan; ?> - <?= $nama_alternatif; ?></option>
 						</select>
 					</div>
 
