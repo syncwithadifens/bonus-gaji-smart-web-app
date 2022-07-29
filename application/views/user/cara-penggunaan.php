@@ -31,15 +31,15 @@
               </p>
               <p class="card-text">
                 <b>2. Menu Sub Kriteria</b><br>
-                Menu Sub Kriteria berfungsi untuk mengatur nilai Sub Kriteria dari nilai Bobot Kriteria yang ada di menu Kriteria. Nilai Sub Kriteria dapat disesuaikan, namun disarankan menggunakan angka antara 0 sampai 100.
+                Menu Sub Kriteria berfungsi untuk mengatur nilai Sub Kriteria dari nilai Bobot Kriteria yang ada di menu Kriteria. Nilai Sub Kriteria dapat disesuaikan, namun disarankan menggunakan angka antara 1 sampai 5.
               </p>
               <p class="card-text">
                 <b>3. Menu Data Karyawan</b><br>
-                Menu Data Karyawan berfungsi untuk meng-<i>input</i> data penduduk yang akan dinilai sesuai Kriteria dan Sub Kriteria yang sudah diatur (lihat langkah 1 dan 2).
+                Menu Data Karyawan berfungsi untuk meng-<i>input</i> data karyawan yang akan dinilai sesuai Kriteria dan Sub Kriteria yang sudah diatur (lihat langkah 1 dan 2).
               </p>
               <p class="card-text">
                 <b>4. Menu Penilaian</b><br>
-                Menu Penilaian berfungsi untuk memberikan penilaian pada setiap Data Karyawan. Menu ini merupakan proses penilaian untuk menentukan kelayakan warga, apakah layak/tidak untuk dianggap sebagai Masyarakat Tidak Mampu.
+                Menu Penilaian berfungsi untuk memberikan penilaian pada setiap Data Karyawan. Menu ini merupakan proses penilaian untuk menentukan kelayakan karyawan, apakah layak/tidak untuk mendapat bonus.
               </p>
               <p class="card-text">
                 <b>5. Menu Hasil Penilaian</b><br>

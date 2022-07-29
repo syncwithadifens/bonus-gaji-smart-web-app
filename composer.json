@@ -1,12 +1,12 @@
 {
-    "name": "panji/skripsi",
-    "description": "skripsi",
+    "name": "withadifens/spk",
+    "description": "spk",
     "type": "project",
     "license": "GPL",
     "authors": [
         {
-            "name": "panji",
-            "email": "panji.bp.bp@gmail.com"
+            "name": "Afiv Dicky Efendy",
+            "email": "dickyareda@gmail.com"
         }
     ],
     "require": {

@@ -1,14 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-Class Penduduk_model extends CI_Model
+class Karyawan_model extends CI_Model
 {
 	public function __construct()
 	{
 		parent::__construct();
 	}
 
-	public function daftarPenduduk()
+	public function daftarKaryawan()
 	{
 		$this->db->select('*');
 		$this->db->from('alternatif');
@@ -17,7 +17,8 @@ Class Penduduk_model extends CI_Model
 		return $query->result();
 	}
 
-	public function simpanPenduduk($data){
+	public function simpanKaryawan($data)
+	{
 		$this->db->insert('alternatif', $data);
 		if ($this->db->affected_rows() == 1) {
 			return true;
@@ -26,7 +27,7 @@ Class Penduduk_model extends CI_Model
 		}
 	}
 
-	public function editPenduduk($id_alternatif)
+	public function editKaryawan($id_alternatif)
 	{
 		$this->db->select('*');
 		$this->db->from('alternatif');
@@ -35,22 +36,22 @@ Class Penduduk_model extends CI_Model
 		return $query->result();
 	}
 
-	public function proseseditpenduduk($id_alternatif, $data)
+	public function proseseditkaryawan($id_alternatif, $data)
 	{
-		$this->db->update('alternatif', $data, 'id_alternatif = '.$id_alternatif);
-		if($this->db->affected_rows() == '1') {
+		$this->db->update('alternatif', $data, 'id_alternatif = ' . $id_alternatif);
+		if ($this->db->affected_rows() == '1') {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public function hapusPenduduk($data)
+	public function hapusKaryawan($data)
 	{
 		$tables = array('alternatif', 'alternatif_kriteria');
 		$this->db->where('id_alternatif', $data);
 		$this->db->delete($tables);
-		if($this->db->affected_rows() > 0) {
+		if ($this->db->affected_rows() > 0) {
 			return true;
 		} else {
 			return false;

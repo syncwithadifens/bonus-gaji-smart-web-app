@@ -7,7 +7,6 @@
 		text-align: center;
 	}
 </style>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -29,7 +28,7 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="pull-left">
-						<a href="<?= base_url('main/tambahdatapenduduk'); ?>" class="btn btn-primary mb-4"><i class="fas fa-plus" style="margin-right: 7px;"></i>Tambah Data Karyawan</a>
+						<a href="<?= base_url('main/tambahdatakaryawan'); ?>" class="btn btn-primary mb-4"><i class="fas fa-plus" style="margin-right: 7px;"></i>Tambah Data Karyawan</a>
 					</div>
 					<div class="pull-right pl-3">
 						<?= $this->session->flashdata('message'); ?>
@@ -45,16 +44,16 @@
 						</tr>
 					<tbody>
 						<?php $no = 1;
-						foreach ($penduduk as $p) { ?>
+						foreach ($karyawan as $p) { ?>
 							<tr>
 								<td style="width: 15px;"><?= $no++; ?></td>
 								<td style="text-align: left;"><?= $p->id_karyawan; ?></td>
 								<td style="text-align: left;"><?= $p->nama_alternatif; ?></td>
 								<td>
-									<a href="<?= base_url('main/editpenduduk?id_alternatif=' . $p->id_alternatif); ?>" class="btn btn-sm btn-primary mr-1">
+									<a href="<?= base_url('main/editkaryawan?id_alternatif=' . $p->id_alternatif); ?>" class="btn btn-sm btn-primary mr-1">
 										<i class="fas fa-fw fa-pen"></i>
 									</a>
-									<a href="<?= base_url('main/proseshapuspenduduk?id_alternatif=' . $p->id_alternatif); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin?')">
+									<a href="<?= base_url('main/proseshapuskaryawan?id_alternatif=' . $p->id_alternatif); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin?')">
 										<i class="fas fa-fw fa-times-circle"></i>
 									</a>
 								</td>

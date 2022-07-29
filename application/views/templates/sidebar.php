@@ -71,11 +71,11 @@
 
         <li class="nav-header"><b>PENGHITUNGAN</b></li>
         <li class="nav-item">
-          <a href="<?= base_url('main/datapenduduk') ?>" class="nav-link <?php if ($this->uri->segment(2) == "datapenduduk") {
+          <a href="<?= base_url('main/datakaryawan') ?>" class="nav-link <?php if ($this->uri->segment(2) == "datakaryawan") {
                                                                             echo "active";
-                                                                          } elseif ($this->uri->segment(2) == "tambahdatapenduduk") {
+                                                                          } elseif ($this->uri->segment(2) == "tambahdatakaryawan") {
                                                                             echo "active";
-                                                                          } elseif ($this->uri->segment(2) == "editpenduduk") {
+                                                                          } elseif ($this->uri->segment(2) == "editkaryawan") {
                                                                             echo "active";
                                                                           } ?>">
             <i class="nav-icon fas fa-users"></i>

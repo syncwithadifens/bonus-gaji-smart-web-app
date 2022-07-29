@@ -9,7 +9,7 @@ class Main extends CI_Controller
 		parent::__construct();
 		$this->load->model('Kriteria_model');
 		$this->load->model('Subkriteria_model');
-		$this->load->model('Penduduk_model');
+		$this->load->model('Karyawan_model');
 		$this->load->model('Hasilpenilaian_model');
 		$this->load->model('Penilaian_model');
 		if (!$this->session->userdata('username')) {
@@ -300,20 +300,20 @@ class Main extends CI_Controller
 		redirect('main/subkriteria');
 	}
 
-	public function dataPenduduk()
+	public function dataKaryawan()
 	{
 		$data['title'] = 'Data Karyawan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-		$data['penduduk'] = $this->Penduduk_model->daftarPenduduk();
+		$data['karyawan'] = $this->Karyawan_model->daftarKaryawan();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		$this->load->view('main/datapenduduk', $data);
+		$this->load->view('main/datakaryawan', $data);
 		$this->load->view('templates/footer');
 	}
 
-	public function tambahDataPenduduk()
+	public function tambahDataKaryawan()
 	{
 		$data['title'] = 'Tambah Data Karyawan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -321,66 +321,71 @@ class Main extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		$this->load->view('main/datapenduduk-tambah', $data);
+		$this->load->view('main/datakaryawan-tambah', $data);
 		$this->load->view('templates/footer');
 	}
 
-	public function prosesSimpanPenduduk()
+	public function prosesSimpanKaryawan()
 	{
 		$data['id_karyawan'] = $this->input->post('id_karyawan');
 		$data['nama_alternatif'] = $this->input->post('nama_alternatif');
 		$data['ket_alternatif'] = 'Tidak Mendapat Bonus';
-
-		$this->Penduduk_model->simpanPenduduk($data);
-
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-		Data Karyawan berhasil ditambahkan.
-		</div>');
-		redirect('main/datapenduduk');
+		$cek = $this->db->get_where('alternatif', ['id_karyawan' => $this->input->post('id_karyawan')])->row_array();
+		if ($cek == 0) {
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			Data Karyawan berhasil ditambahkan.
+			</div>');
+			$this->Karyawan_model->simpanKaryawan($data);
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Data Karyawan gagal ditambahkan.
+			</div>');
+		}
+		redirect('main/datakaryawan');
 	}
 
-	public function editPenduduk()
+	public function editKaryawan()
 	{
 		$id_alternatif = $this->input->get('id_alternatif');
 
 		$data['title'] = 'Edit Data Karyawan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-		$data['penduduk'] = $this->Penduduk_model->editPenduduk($id_alternatif);
+		$data['karyawan'] = $this->Karyawan_model->editKaryawan($id_alternatif);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		$this->load->view('main/datapenduduk-edit', $data);
+		$this->load->view('main/datakaryawan-edit', $data);
 		$this->load->view('templates/footer');
 
 		$this->session->set_flashdata('id_alternatif', $id_alternatif);
 	}
 
-	public function prosesEditPenduduk()
+	public function prosesEditKaryawan()
 	{
 		$id_alternatif = $this->session->flashdata('id_alternatif');
 
 		$data['id_karyawan'] = $this->input->post('id_karyawan');
 		$data['nama_alternatif'] = $this->input->post('nama_alternatif');
 
-		$this->Penduduk_model->prosesEditPenduduk($id_alternatif, $data);
+		$this->Karyawan_model->prosesEditKaryawan($id_alternatif, $data);
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 		Data Karyawan berhasil diubah.
 		</div>');
-		redirect('main/datapenduduk');
+		redirect('main/datakaryawan');
 	}
 
-	public function prosesHapusPenduduk()
+	public function prosesHapusKaryawan()
 	{
 		$data = $this->input->get('id_alternatif');
 
-		$this->Penduduk_model->hapusPenduduk($data);
+		$this->Karyawan_model->hapusKaryawan($data);
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 		Data Karyawan berhasil dihapus.
 		</div>');
-		redirect('main/datapenduduk');
+		redirect('main/datakaryawan');
 	}
 
 	public function penilaian()

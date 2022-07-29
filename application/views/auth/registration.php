@@ -32,19 +32,26 @@
           </div>
 
           <div class="inputBx password">
-            <input id="password-input" type="password" id="password" name="password" required="required">
+            <input id="password-input" type="password" id="password" name="password1" required="required">
             <span>Password</span>
             <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
             <i class="fas fa-key"></i>
             <div class="input-group">
               <?= form_error('password', '<small class="text-danger">', '</small>') ?>
             </div>
-          </div>
-          <label class="remember"><input type="checkbox">
-            Remember</label>
-          <div class="inputBx">
-            <input type="submit" value="Sign Up">
-          </div>
+            <br>
+            <div class="inputBx password">
+              <input id="password-input" type="password" id="password" name="password2" required="required">
+              <span>Retype password</span>
+              <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+              <i class="fas fa-key"></i>
+              <div class="input-group">
+                <?= form_error('password', '<small class="text-danger">', '</small>') ?>
+              </div>
+            </div>
+            <div class="inputBx">
+              <input type="submit" value="Sign Up">
+            </div>
         </form>
         <p>Already have an account <a href="<?= base_url('auth/'); ?>">Log In</a></p>
       </div>
